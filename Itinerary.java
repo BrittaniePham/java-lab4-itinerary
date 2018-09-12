@@ -11,16 +11,30 @@ public class Itinerary {
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Please enter your destinations or type 'done': ");
+		System.out.print("Destination: ");
 		String city = input.nextLine();
 		String cityValidation = city.toLowerCase();
 		
 		while(!cityValidation.equals("done")) {
 			itinerary.add(city);
-			System.out.println("you added " + city + " to the itinerary");
+			System.out.print("Destination: ");
 			city = input.nextLine();
 			cityValidation = city.toLowerCase();
 		}
 		System.out.println("itinerary completed");
+		StringBuilder sb = new StringBuilder("travel route: ");
+		
+		int i = 0;
+		for(String it : itinerary ) {
+			it = it.toUpperCase();
+			if(i < itinerary.size() - 1) {
+				sb.append(it + " to ");
+				i++;
+			} else {
+				sb.append(it);
+			}
+		}
+		System.out.println(sb);
 	}
 	
 }
